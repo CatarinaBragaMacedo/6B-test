@@ -52,7 +52,7 @@
                 <input type="text" class="form-control" id="subtitle" placeholder="Subtitle" />
               </div>
               <div class="form-group">
-                <label for="conteudo">Content</label>
+                <label for="content">Content</label>
                 <header style="display: flex; gap: 0.3rem; align-items: center; margin-bottom: 0.5rem">
                   <div>
                     <i class="ph-arrow-u-up-left"></i>
@@ -60,9 +60,9 @@
                   </div>
                   <div>Normal text <i class="ph-arrow-down"></i></div>
                   <div>
-                    <input class="inpt-color" type="color" name="" id="" />
+                    <input class="input-color" type="color" name="" id="" />
                   </div>
-                  <span id="negrito">
+                  <span id="bold">
                     <strong> B </strong>
                   </span>
                 </header>
@@ -76,9 +76,33 @@
           </div>
         </div>
       </div>
-
-
-
+      <div class="container" id="result"></div>
+    <div id="edit">
+      <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nova Nota</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" />
+                <label for="subtitle">Subtitle</label>
+                <input type="text" class="form-control" id="subtitle" placeholder="Subtitle" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="modalclose" onclick="createNote()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
