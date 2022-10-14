@@ -31,7 +31,7 @@ $("#exampleModal").on("hidden.bs.modal", function (e) {
     //valores dos inputs
     const title = $("#title").val();
     const subtitle = $("#subtitle").val();
-    const conteunt = $("#content").val();
+    const content = $("#content").val();
   
     $("#title").val("");
     $("#content").val("");
@@ -39,7 +39,7 @@ $("#exampleModal").on("hidden.bs.modal", function (e) {
   
     if (title === "" || subtitle === "" || content === "") return alert(`Fill in all the fields!`);
   
-    data.push({ title, subtitle, content, dateFormat, bold, time });
+    data.push({ title, subtitle, content, date, bold, time });
   
     setData(data);
   
