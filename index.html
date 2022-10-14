@@ -35,7 +35,47 @@
           </div>
         </div>
       </div>
-      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nova Nota</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="titulo">Title</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Titulo" />
+                <label for="subtitulo">Subtitle</label>
+                <input type="text" class="form-control" id="subtitulo" placeholder="Subtitulo" />
+              </div>
+              <div class="form-group">
+                <label for="conteudo">Conteudo</label>
+                <header style="display: flex; gap: 0.3rem; align-items: center; margin-bottom: 0.5rem">
+                  <div>
+                    <i class="ph-arrow-u-up-left"></i>
+                    <i class="ph-arrow-u-up-right"></i>
+                  </div>
+                  <div>Normal text <i class="ph-arrow-down"></i></div>
+                  <div>
+                    <input class="inpt-color" type="color" name="" id="" />
+                  </div>
+                  <span id="negrito">
+                    <strong> B </strong>
+                  </span>
+                </header>
+                <textarea class="form-control" placeholder="Describe your note" id="conteudo" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="modalclose">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
