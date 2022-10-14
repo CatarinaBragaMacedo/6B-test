@@ -11,17 +11,17 @@ const getData = () => {
 };
 
 const setData = (data) => {
-  localStorage.setItem("banco", JSON.stringify(data));
+  localStorage.setItem("data", JSON.stringify(data));
 };
 
 $("#exampleModal").on("hidden.bs.modal", function (e) {
-    const banco = getData();
+    const data = getData();
     let date = new Date();
-    let dia = date.getDate();
-    let mes = date.getMonth() + 1;
-    let ano = date.getFullYear();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
     let dateFormat = day + "/" + month + "/" + year;
-    let negrito = $("#bold").css("font-weight");
+    let bold = $("#bold").css("font-weight");
   
     let hours = date.getHours();
     let minutes = date.getMinutes();
@@ -29,9 +29,9 @@ $("#exampleModal").on("hidden.bs.modal", function (e) {
     let time = hours + ":" + minutes + ":" + seconds;
   
     //valores dos inputs
-    const titulo = $("#titulo").val();
-    const subtitulo = $("#subtitulo").val();
-    const conteudo = $("#conteudo").val();
+    const title = $("#title").val();
+    const subtitle = $("#subtitle").val();
+    const conteunt = $("#content").val();
   
     $("#title").val("");
     $("#content").val("");
@@ -39,9 +39,9 @@ $("#exampleModal").on("hidden.bs.modal", function (e) {
   
     if (title === "" || subtitle === "" || content === "") return alert(`Fill in all the fields!`);
   
-    banco.push({ title, subtitle, content, dateFormat, bold, time });
+    data.push({ title, subtitle, content, dateFormat, bold, time });
   
-    setBanco(banco);
+    setData(data);
   
     if (title && subtitle && content) {
       $("#result").append(`
@@ -106,9 +106,85 @@ $("#exampleModal").on("hidden.bs.modal", function (e) {
                   </div>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary" id="save">Save</button>
               </div>
           </div>
       </div>
       `;
+      document.body.appendChild(modalEdit);
+      const modal = new bootstrap.Modal(modalEdit);
+      modal.show();
+    
+      const save = document.getElementById("save");
+      salve.addEventListener("click", () => {
+        const data = getData();
+        date.push({ title, subtitle, content, bold });
+        setData(data);
+        modal.hide();
+      });
+    
+      modalEdit.addEventListener("hidden.bs.modal", () => {
+        modalEdit.remove();
+      });
+    };
+    
+    $(document).ready(function () {
+      $("#result").on("click", ".card-dinamic", function () {
+        $(this).toggleClass("active");
+      });
+    });
+    
+    $("#result").on("click", "#deleteNote", function (e) {
+      const data = getData();
+      const index = $(this).parent().parent().index();
+      data.splice(index, 1);
+      setData(data);
+      $(this).parent().parent().remove();
+    });
+    
+    const modalclose = document.getElementById("modalclose");
+    
+    modalclose.addEventListener("click", () => {
+      $("#exampleModal").modal("hide");
+    });
+    
+    $(document).ready(function () {
+      const data = getData();
+      data.forEach((item) => {
+        $("#result").append(`
+                  <div class="card">
+                    <div class="card-header">
+                      <h1 id="title">${item.title}</h1>
+    
+                      <h5 class="card-title" id="subtitle">${item.subtitle}</h5>
+                    </div>
+    
+                    <div class="card-body">
+                        <span id="note">${item.content}</span>
+                    </div>
+                    <div class="card-footer flex-footer">
+                        <span> <i class="ph-calendar"></i> <span id="date">${item.data} às ${item.time}</span> </span>
+                    </div>
+                    <div class="button-group">
+              <button id="edit" onclick="editNote()">
+                <i class="ph-pencil"></i> Edit
+              </button>
+    
+              <button id="deleteNote" " type="button" class="btn btn-flex" >
+                <i class="ph-trash-simple"></i> Delete
+              </button>
+            </div>
+                  </div>
+                `);
+      });
+    });
+    
+    $("#bold").click(function () {
+      $("#content").css("font-weight", "bold");
+    });
+    
+    $("#bold").dblclick(function () {
+      $("#content").css("font-weight", "normal");
+    });
+    
