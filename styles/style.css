@@ -1,0 +1,28 @@
+.ph-plus-circle,
+.ph-dots-three-vertical {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.container {
+  padding-block: 5rem;
+}
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.flex-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
