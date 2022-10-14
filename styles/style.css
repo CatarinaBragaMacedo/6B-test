@@ -26,3 +26,45 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.input-color {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  #bold {
+    font-weight: bold;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .card-dinamic {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card-dinamic.active {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+  
+    transform: translate(-50%, -50%);
+  
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
